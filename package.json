@@ -1,0 +1,26 @@
+{
+  "name": "@ns-private/nsolid-exec",
+  "version": "0.0.17",
+  "description": "Using Nsolid without installing it",
+  "bin": {
+    "nsolid-exec": "./index.js"
+  },
+  "publishConfig": {
+    "registry": "http://packages-internal.nodesource.io"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "postinstall": "./lib/runtime.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "colorette": "^1.2.2",
+    "command-exists": "^1.2.9"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}
