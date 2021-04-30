@@ -1,6 +1,6 @@
 {
   "name": "@ns-private/nsolid-exec",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Using Nsolid without installing it",
   "bin": {
     "nsolid-exec": "./index.js"
