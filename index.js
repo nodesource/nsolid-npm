@@ -22,4 +22,5 @@ if (!process.release.lts) {
 }
 
 processManager.start(process.release.lts.toLowerCase(), join(homedir(), '.nsolid-runtime'))
-processManager.launchProcess(args)
+processManager.launchProcess([join(__dirname, 'lib', 'connection-checker.js')]) // Check the connection with the console
+processManager.launchProcess(args) // Launch the user's process
