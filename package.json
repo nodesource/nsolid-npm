@@ -1,6 +1,6 @@
 {
   "name": "@ns-private/nsolid-exec",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Using Nsolid without installing it",
   "bin": {
     "nsolid-exec": "./index.js"
@@ -12,15 +12,17 @@
   "scripts": {
     "lint": "standard",
     "postinstall": "./lib/runtime.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && NODE_ENV=test nyc --reporter=lcov --reporter=text-summary ava --verbose --timeout=10m"
   },
-  "author": "",
+  "author": "nodesrc",
   "license": "MIT",
   "dependencies": {
     "colorette": "^1.2.2",
     "command-exists": "^1.2.9"
   },
   "devDependencies": {
+    "ava": "^3.15.0",
+    "nyc": "^15.1.0",
     "standard": "^16.0.3"
   }
 }

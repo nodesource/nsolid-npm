@@ -1,0 +1,14 @@
+{
+  "name": "dummy-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "nsolid": {
+    "saas": "ebSqy3om-Az)w]XM5CvamkU*{?RLg}K/e41%knzp55da80ae-798b-4351-fake-71193eaab9db.dumby.saas.nodesource.io:30112"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
