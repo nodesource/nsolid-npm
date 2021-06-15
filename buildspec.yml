@@ -26,7 +26,8 @@ phases:
       
   post_build:
     commands:
-      - mv coverage/* /root/artifacts/ || true
+      - tar -zcvf coverage-nsolid-npm.tar.gz coverage/
+      - mv coverage-nsolid-npm.tar.gz /root/artifacts/ || true
 
 artifacts:
   files:
