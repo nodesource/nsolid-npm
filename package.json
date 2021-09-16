@@ -1,14 +1,16 @@
 {
-  "name": "@ns-private/nsolid-exec",
-  "version": "0.0.19",
-  "description": "Using Nsolid without installing it",
+  "name": "nsolid",
+  "version": "1.0.0",
+  "description": "N|Solid runtime wrapper to be used from NPM",
+  "homepage": "https://github.com/nodesource/nsolid-npm/",
   "bin": {
-    "nsolid-exec": "./index.js"
-  },
-  "publishConfig": {
-    "registry": "http://packages-internal.nodesource.io"
+    "nsolid": "./index.js"
   },
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodesource/nsolid-npm.git"
+  },
   "scripts": {
     "lint": "standard",
     "postinstall": "./lib/runtime.js",
