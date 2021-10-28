@@ -7,8 +7,11 @@ const { exitHandler, unexpectedError } = require('./lib/handlers')
 
 const processManager = require('./lib/process-manager')
 const output = require('./lib/output')
-const args = process.env.npm_lifecycle_script.split(' ')
-args.shift()
+
+const { npm_lifecycle_script: npmLifeCycleScript } = process.env
+const args = npmLifeCycleScript != null
+  ? npmLifeCycleScript.split(' ').slice(-1)
+  : process.argv.slice(-1)
 
 // Registering error and exit handlers
 process.on('beforeExit', exitHandler)
