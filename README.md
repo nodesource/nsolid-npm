@@ -51,6 +51,27 @@ npm install -g nsolid
       "test": "echo \"Error: no test specified\" && exit 1"
     },
   ```
+
+### How to get my N|Solid Command URL
+#### Instructions for N|Solid Local Instance
+
+- The  URL for N|Solid running locally is `localhost:9001`
+#### Instructions for N|Solid SaaaS
+
+- Go to your [Node Source account](https://accounts.nodesource.com/downloads) and choose the `NodeSource - SaaS` account as the print below
+
+![](./resources/01-initial-page.png)
+
+- You should see the same page as below:
+
+![](./resources/02-saas-console-url.png)
+The page shows you the Console URL and the NodeSource SaaS command that you'll need to link your app
+where: 
+1. The console URL available to copy it
+2. a button to visit the console page
+3. your account N|Solid command address 
+
+Copy the the **command address** to use it on the next section.
 ### How to link your Node.js app to a N|Solid Console
 
 - In order to link your current application to the desired **N|Solid Console** you must add configuration properties either on your `package.json` or using the `NSOLID_COMMAND`, for local N-Solid instance,  or `NSOLID_SAAS` environment variables on your machine. See our [examples](./examples).
