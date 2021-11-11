@@ -97,9 +97,12 @@ Copy the the **command address** to use it on the next section.
     }
   ```
 
+*For more information on these settings please go to [https://docs.nodesource.com/nsolid/4.5/docs#nsolid-runtime](https://docs.nodesource.com/nsolid/4.6/docs#nsolid-runtime)*
 
-For more information on these settings please go to [https://docs.nodesource.com/nsolid/4.5/docs#nsolid-runtime](https://docs.nodesource.com/nsolid/4.6/docs#nsolid-runtime)
+- Then, after running `npm start` command, go back to the browser and visit the console (as shown on the next section).
+- Your *N|Solid Console* show the apps you've linked as follows:
 
+![](./resources/03-metrics-working.png)
 
 ## How it works
 
