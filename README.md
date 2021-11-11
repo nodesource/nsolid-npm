@@ -93,8 +93,7 @@ Currently, this module supports Linux, Windows, and Mac.
 
 To submit a bug report, please create an [issue at GitHub](https://github.com/nodesource/nsolid-npm/issues/new).
 
-If you'd like to contribute code to this project, please read the
-[CONTRIBUTING.md](./CONTRIBUTING.md) document. It contains a brief overview of this repo.
+Contributions are always welcome!
 
 ## License & Copyright
 
