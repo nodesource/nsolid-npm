@@ -92,14 +92,25 @@ Copy the the **command address** to use it on the next section.
       "start": "nsolid index.js"
     },
     "nsolid": {
-      "command": "YOUR Local N|Solid URL",
       "saas": "YOUR N|Solid SaaS URL"
     }
+  ```
+  or for local N|Solid instance: 
+
+  __after__:
+  ```json
+    "scripts": {
+      "start": "nsolid index.js"
+    },
+    "nsolid": {
+      "command": "localhost:9001"
+    }
+
   ```
 
 *For more information on these settings please go to [https://docs.nodesource.com/nsolid/4.5/docs#nsolid-runtime](https://docs.nodesource.com/nsolid/4.6/docs#nsolid-runtime)*
 
-- Then, after running `npm start` command, go back to the browser and visit the console (as shown on the next section).
+- Then, after running `npm start` command, go back to the browser and visit the console (as shown on the previous section).
 - Your *N|Solid Console* show the apps you've linked as follows:
 
 ![](./resources/03-metrics-working.png)
