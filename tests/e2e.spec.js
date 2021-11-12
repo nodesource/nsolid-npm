@@ -30,10 +30,10 @@ test.serial('runtime.js spec - download the runtime', t => {
 test.serial('process-manager.js spec - launch processes', t => {
   processManager.start(process.release.lts.toLowerCase(), join(tmpdir(), '.nsolid-runtime'))
 
-  processManager.launchProcess([join(__dirname, 'tests', 'fixtures', 'index.js')])
+  processManager.launchProcess([join(__dirname, 'tests', 'fixtures', 'app-with-package.json', 'index.js')])
   t.is(processManager.nsolidProcesses.length, 1, 'should have 1 process running')
 
-  processManager.launchProcess([join(__dirname, 'tests', 'fixtures', 'index.js')])
+  processManager.launchProcess([join(__dirname, 'tests', 'fixtures', 'app-with-package.json', 'index.js')])
   t.is(processManager.nsolidProcesses.length, 2, 'should have 2 processes running')
 
   processManager.stopProcesses()
