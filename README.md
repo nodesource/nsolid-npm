@@ -55,7 +55,9 @@ npm install -g nsolid
 ### How to get my N|Solid Command URL
 #### Instructions for N|Solid Local Instance
 
-- The  URL for N|Solid running locally is `localhost:9001`
+- The command for N|Solid Desktop is `localhost:9001`
+- The URL for N|Solid Console is `http://localhost:6753`
+
 #### Instructions for N|Solid SaaaS
 
 - Go to your [Node Source account](https://accounts.nodesource.com/downloads) and choose the `NodeSource - SaaS` account as the print below
@@ -114,6 +116,8 @@ Copy the the **command address** to use it on the next section.
 - Your *N|Solid Console* show the apps you've linked as follows:
 
 ![](./resources/03-metrics-working.png)
+
+*If you're running the N|Solid Console locally, you just need to open the URL `http://localhost:6753` and you should see the same page as above.*
 
 ## How it works
 
