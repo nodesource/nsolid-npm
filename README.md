@@ -21,10 +21,10 @@ Install the module for your project as a regular dependency:
 npm install nsolid
 ```
 
-or globally:
+or using npx:
 
 ```bash
-npm install -g nsolid
+npx nsolid
 ```
 ## Usage
 
