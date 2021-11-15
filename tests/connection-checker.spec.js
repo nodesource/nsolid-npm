@@ -106,13 +106,19 @@ test('connection-checker.js spec - NSOLID_SAAS no config', t => {
   t.is(connectionProcess.stderr.includes(error), true, 'should show the config error message')
 })
 
-test('connection-checker.js spec - NSOLID_SAAS should read env', t => {
-  const saasCredentials = 'w,abc121>%>h9-0sb-Nqc+!n>RMFB,.Smh&FYocK%Z0000v123-7147-4791-88f8-091tttf48999.proxy.saas.nodesource.io:30001'
+test('connection-checker.js spec - NSOLID_SAAS should read env and error connecting', t => {
+  const saasUrl = '0000v55da80ae-798b-4351-fake-71193eaab9db.dumby.saas.nodesource.io:30001'
   const connectionProcess = spawnSync(
     process.argv0,
     ['lib/connection-checker.js'],
-    { encoding: 'utf-8', env: { NSOLID_SAAS: saasCredentials, PWD: join(process.cwd(), 'tests', 'fixtures', 'app-without-package.json') } }
+    {
+      encoding: 'utf-8',
+      env: {
+        NSOLID_SAAS: saasUrl,
+        PWD: join(process.cwd(), 'tests', 'fixtures', 'app-without-package.json')
+      }
+    }
   )
-
-  t.is(connectionProcess.stderr, '', 'should not throw an error when env is valid')
+  const error = 'There was a problem connecting to the N|Solid Console'
+  t.is(connectionProcess.stderr.includes(error), true, 'should show the connection error message')
 })
