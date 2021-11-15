@@ -1,0 +1,19 @@
+{
+  "name": "nsolid-sass-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nsolid index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nsolid": {
+    "saas": "YOUR N-SOLID SAAS ADDRESS"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC",
+  "dependencies": {
+    "nsolid": "^0.0.0"
+  }
+}
