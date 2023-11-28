@@ -4,6 +4,7 @@ const net = require('net')
 const test = require('ava')
 const { join } = require('path')
 const { spawnSync } = require('child_process')
+const { promisify } = require('util')
 
 test('connection-checker.js spec - no config', t => {
   const connectionProcess = spawnSync(
@@ -27,7 +28,7 @@ test('connection-checker.js spec - NSOLID_COMMAND error connecting', t => {
   t.is(connectionProcess.stderr.includes(error), true, 'should show the connection error message')
 })
 
-test.cb('connection-checker.js spec - NSOLID_COMMAND successfully connecting', t => {
+test('connection-checker.js spec - NSOLID_COMMAND successfully connecting', async (t) => {
   const server = net.createServer()
 
   server.on('connection', (socket) => {
@@ -37,25 +38,25 @@ test.cb('connection-checker.js spec - NSOLID_COMMAND successfully connecting', t
     })
   })
 
-  server.listen(9090, '127.0.0.1', () => {
-    const connectionProcess = spawnSync(
-      process.argv0,
-      ['lib/connection-checker.js'],
-      {
-        encoding: 'utf-8',
-        env: {
-          NSOLID_COMMAND: '127.0.0.1:9090',
-          PWD: join(process.cwd(), 'tests', 'fixtures', 'app-with-package.json')
-        }
-      }
-    )
+  const listen = promisify(server.listen.bind(server))
+  await listen(9090, '127.0.0.1')
 
-    t.is(connectionProcess.stderr, '', 'should not be an error message')
-    t.end()
-  })
+  const connectionProcess = spawnSync(
+    process.argv0,
+    ['lib/connection-checker.js'],
+    {
+      encoding: 'utf-8',
+      env: {
+        NSOLID_COMMAND: '127.0.0.1:9090',
+        PWD: join(process.cwd(), 'tests', 'fixtures', 'app-with-package.json')
+      }
+    }
+  )
+
+  t.is(connectionProcess.stderr, '', 'should not be an error message')
 })
 
-test.cb('connection-checker.js spec - NSOLID_COMMAND successfully connecting on projects without package.json files', t => {
+test('connection-checker.js spec - NSOLID_COMMAND successfully connecting on projects without package.json files', async t => {
   const server = net.createServer()
 
   server.on('connection', (socket) => {
@@ -65,22 +66,21 @@ test.cb('connection-checker.js spec - NSOLID_COMMAND successfully connecting on 
     })
   })
 
-  server.listen(9091, '127.0.0.1', () => {
-    const connectionProcess = spawnSync(
-      process.argv0,
-      ['lib/connection-checker.js'],
-      {
-        encoding: 'utf-8',
-        env: {
-          NSOLID_COMMAND: '127.0.0.1:9091',
-          PWD: join(process.cwd(), 'tests', 'fixtures', 'app-without-package.json')
-        }
+  const listen = promisify(server.listen.bind(server))
+  await listen(9091, '127.0.0.1')
+  const connectionProcess = spawnSync(
+    process.argv0,
+    ['lib/connection-checker.js'],
+    {
+      encoding: 'utf-8',
+      env: {
+        NSOLID_COMMAND: '127.0.0.1:9091',
+        PWD: join(process.cwd(), 'tests', 'fixtures', 'app-without-package.json')
       }
-    )
+    }
+  )
 
-    t.is(connectionProcess.stderr, '', 'should not be an error message')
-    t.end()
-  })
+  t.is(connectionProcess.stderr, '', 'should not be an error message')
 })
 
 test('connection-checker.js spec - SaaS config in package.json error connecting', t => {
