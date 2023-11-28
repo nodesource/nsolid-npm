@@ -1,6 +1,6 @@
 {
   "name": "nsolid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "N|Solid runtime wrapper to be used from NPM",
   "homepage": "https://github.com/nodesource/nsolid-npm/",
   "bin": {
