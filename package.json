@@ -13,7 +13,7 @@
   },
   "scripts": {
     "lint": "standard",
-    "postinstall": "./lib/runtime.js",
+    "postinstall": "node ./lib/runtime.js",
     "test": "npm run lint && NODE_ENV=test nyc --reporter=lcov --reporter=text-summary ava --verbose --timeout=10m"
   },
   "author": "nodesrc",
